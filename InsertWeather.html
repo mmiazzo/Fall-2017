@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>MPCS53001 Service Call plotting</title>
+</head>
+
+<body>
+<h1>New Event Creation</h1>
+
+<hr>
+<form method=get action="InsertWeather.php">
+		<b>What would you like to search by?</b><br>
+		<input type="date" name='weatherDate' value="weatherDate">Which date?<br>
+		<input type="number" name='precip' id='precip' step="any">If there was rainfall, how much?<br>
+
+		<input type="number" name='snow' value="snow" step="any"> If there was snowfall, how much?<br>
+		<input type="number" name='wind' value="wind"> Average Wind Speed?<br>
+		<input type='number' name='minT' id='minT'> Daily low temperature<br>
+		<input type='number' name='maxT' id='maxT'>Daily high temperature<br>
+		<input type="Submit" name="submit"><br>
+
+</form>
+</body>
+</html>

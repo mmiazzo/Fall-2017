@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>MPCS53001 Service Call plotting</title>
+</head>
+
+<body>
+<h1>New Event Creation</h1>
+
+Let's Create a new event! take a look below and fill out the data
+<hr>
+<form method=get action="InsertEvent.php">
+		<b>What would you like to search by?</b><br>
+		<input type="checkbox" name='SportsRelated' value="Sports"> Event is Related to Sports<br>
+		<input type="text" name='description' id='description'> Write a 200 character description of the event<br>
+
+		<input type="checkbox" name='isPolitical' value="isPolitical"> Event is Related to Politics<br>
+		<input type="checkbox" name='InChicago' value="InChicago"> Is the event in chicago?<br>
+		<input type='date' name='StartDate' id='StartDate'> Event Start Date<br>
+		<input type='date' name='EndDate' id='EndDate'>Event End Date<br>
+		<input type='number' name='CID' id='CID'> Community Area Location<br>
+		<input type="Submit" name="submit"><br>
+
+</form>
+</body>
+</html>

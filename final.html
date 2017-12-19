@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>MPCS53001 Service Call plotting</title>
+</head>
+
+<body>
+<h1>MPCS53001 Service Call Data Retrieval</h1>
+
+Let's determine a time range we want to Retrieve Data. Would you like to see certain events or input a time range? 
+
+<a href="getTables.php">List the tables in the database! 1 functionality</a>
+<hr>
+Do you want to look at crime data or 311 call data? 4 functionalities which can be run on 2 different tables
+<form method=get action="dateData.php">
+	<b>Look at crime data or 311 call data?</b><br>
+		<select name=tbltype>
+			<option value='311Calls'>311 Calls</option>
+			<option value='ReportedCrimes'>Crimes</option>
+		</select><br>
+	<b>What would you like to search by?</b><br>
+		<input type="radio" name='dataRet' value="DRange" checked> Retreive data which occurred during a specific date range<br>
+			Start Date: <input type="date" id="Date" name="startDate" placeholder="start date"><br>
+			End Date: <input type="date" id="Date" name="endDate" placeholder="end date"><br>
+		<input type="radio" name='dataRet' value="event"> Retreive data which occurred during a specific event<br>
+
+		<input type="radio" name='dataRet' value="tempRange"> Retreive data which occurred on days where the average termperature was within a temperature range in F<br>
+			Lower Temp: <input type="number" id="Temperature" name="startTemp"><br>
+			Higher Temp: <input type="number" id="Temperature" name="endTemp"><br>
+		<input type="radio" name='dataRet' value="incomeRange"> Retrieve data which occurred in community areas with certain income range<br>
+			Lower Income: <input type="number" id="Income" name="startInc"><br>
+			Upper Income: <input type="number" id="Income" name="endInc"><br>
+		<input type="Submit" name="submit"><br>
+	<b>What data would you like to retrieve?<b>
+</form>
+
+<hr>
+<b>Binning-Determine total counts of 311 calls/reported crimes by the following restrictions. 4 functionalities which can be run on 2 separate tables</b><br>
+<form method=get action="binData.php">
+	<b>Look at crime data or 311 call data?</b><br>
+		<select name=tbltype>
+			<option value='311Calls'>311 Calls</option>
+			<option value='ReportedCrimes'>Crimes</option>
+		</select><br>
+	<b>What would you like to search by?</b><br>
+		<input type="radio" name='dataRet' value="DRange" checked>Retrieve total count of data by day of week<br>
+		<input type="radio" name='dataRet' value="tempRange"> Determine total count of data broken up by input temperature range<br>
+		<input type="radio" name='dataRet' value="Location"> Determine total count of data broken up by the community area<br>
+		<input type="radio" name='dataRet' value="incomeRange"> Determine total count of data grouped by Income ranges<br>
+		Bin Size: <input type="number" name="binSize" id="Bin"><br>
+		<input type="submit" name="submit"><br>
+</form>
+<hr>
+<B>Statistics-2 functionalities</B><br>
+<form method=get action="getStats.php">
+	<b>What would you like to search by?</b><br>
+		<input type="radio" name='dataRet' value="TTC" checked>Retrieve Average Time to completion for service calls<br>
+			Group By Type? <input type="checkbox" id="type" name="groupType"><br>
+			Group By Location? <input type="checkbox" id="type" name="groupLoc"><br>
+		<input type="submit" name="submit"><br>
+</form>
+<hr>
+<B>Update Records</B><br>
+<form method=get action="Update311Type.php">
+	<b>Update a Service Area Call Type</b><br>
+	<b>Type Service ID record:</b><br>
+		<input type="text" name="311ID" id="311ID">	
+		<select name=TypeUpdate id=TypeUpdate>
+			<option value="AVC">Abandoned Vehicle Complaint</option>
+			<option value="PotHole">PotHole in street</option>
+			<option value="Graffiti">Graffiti</option>
+	</select><br>
+		<input type="submit" name="submit"><br>
+</form>
+<hr>
+<form method=get action="UpdateComplete.php">
+	<b>Mark a Service Request as Complete</b><br>
+	<b>Type Service ID record and input a Completion Date:</b><br>
+		<input type="text" name="311ID" id="311ID"><br>
+		<input type="date" id="Date" name="endDate" placeholder="end date"><br>
+		<input type="submit" name="submit"><br>
+</form>
+<hr>
+<form method=get action="newEvent.html">
+	<b>Create a new Event!</b><br>
+	<input type="submit" name="submit"><br>
+</form>
+<hr>
+<form method=get action="deleteEvent.php">
+	<b>Delete an event!</b><br>
+	<input type="submit" name="submit"><br>
+</form>
+<hr>
+<form method=get action="Delete311.php">
+	<b>Delete a Service Area Call</b><br>
+	<b>Type Service ID record:</b><br>
+		<input type="text" name="311ID" id="311ID"><br>
+		<input type="submit" name="submit"><br>
+</form>
+<hr>
+<form method=get action="deleteCrimes.php">
+	<b>Delete a ReportedCrime</b><br>
+	<b>Type Case ID:</b><br>
+		<input type="text" name="CaseID" id="CaseID"><br>
+		<input type="submit" name="submit"><br>
+</form>
+<hr>
+<form method=get action="updateCrimes.php">
+	<b>Update a Reported Crime to indicate an arrest was made</b><br>
+	<b>Type CaseID:</b><br>
+		<input type="text" name="CaseID" id="CaseID"><br>
+		<input type="submit" name="submit"><br>
+</form>
+<hr>
+<form method=get action="InsertWeather.html">
+	<b>Add weather for a date </b><br>
+		<input type="submit" name="Go!"><br>
+</form>
+</body>
+</html>
